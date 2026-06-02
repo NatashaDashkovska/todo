@@ -1,0 +1,52 @@
+:root {
+  --bg-color: #f4f7f6;
+  --card-bg: #ffffff;
+  --text-main: #2d3748;
+  --text-muted: #a0aec0;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --border-color: #e2e8f0;
+  --danger: #ef4444;
+  --radius: 12px;
+  --transition: all 0.2s ease-in-out;
+}
+
+/* Контейнер додатка */
+.todo-container {
+  background: #ffffff;
+
+  /* Використовуємо хитру функцію clamp, яка не дасть блоку стати меншим за 700px 
+     на великих екранах, але дозволить стискатися на мобільних телефонах */
+  width: clamp(700px, 90vw, 1200px);
+
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+}
+
+/* Хедер */
+.todo-header {
+  margin-bottom: 32px;
+}
+
+.todo-header h1 {
+  margin: 0 0 4px 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.todo-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.todo-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 28px;
+  width: 100%;
+}

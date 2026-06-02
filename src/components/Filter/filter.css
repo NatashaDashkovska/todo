@@ -1,0 +1,52 @@
+/* Контейнер фільтра */
+.todo-filter {
+  margin: 0; /* Відступ до списку задач */
+  width: 100%;
+  max-width: 280px;
+  /* Робимо поле фільтра компактним */
+}
+
+/* Обгортка лейбла та інпута */
+.todo-filter-label {
+  display: flex;
+  flex-direction: column; /* Текст фільтра буде СТРОГО НАД інпутом */
+  gap: 6px; /* Відступ між текстом "Filter by name" та самим полем */
+  cursor: pointer;
+}
+
+/* Текст "Filter by name" */
+.todo-filter-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  text-transform: uppercase; /* Робимо текст трохи витонченішим */
+  letter-spacing: 0.5px;
+  font-size: 12px;
+}
+
+/* Сам інпут фільтрації */
+.todo-filter-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background-color: #ffffff;
+  color: var(--text-main);
+  outline: none;
+  box-sizing: border-box;
+  transition: var(--transition);
+}
+
+/* Ефект при кліку (фокусі) на інпут */
+.todo-filter-input:focus {
+  border-color: var(--primary);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); /* М'яке фіолетове свічення */
+}
+
+/* Стиль для плейсхолдера */
+.todo-filter-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}

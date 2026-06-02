@@ -1,0 +1,32 @@
+[
+  { "id": "td-1", "text": "Learn German B2", "completed": false },
+  { "id": "td-2", "text": "Learn React", "completed": false },
+  { "id": "td-3", "text": "Visit France", "completed": true },
+
+  {
+    "id": "td-4",
+    "text": "Set up CI/CD pipeline for the project",
+    "completed": false
+  },
+  { "id": "td-5", "text": "Read 12 books this year", "completed": false },
+  { "id": "td-6", "text": "Buy a mechanical keyboard", "completed": false },
+  { "id": "td-7", "text": "Configure Tailwind CSS", "completed": false },
+  {
+    "id": "td-8",
+    "text": "Do 30 minutes of morning stretching",
+    "completed": false
+  },
+  { "id": "td-9", "text": "Master advanced Git rebase", "completed": false },
+  { "id": "td-10", "text": "Book dentistry appointment", "completed": false },
+  {
+    "id": "td-11",
+    "text": "Clean up desktop and downloads folder",
+    "completed": false
+  },
+  { "id": "td-12", "text": "Drink 2L of water daily", "completed": false },
+  {
+    "id": "td-13",
+    "text": "Refactor state management logic",
+    "completed": false
+  }
+]

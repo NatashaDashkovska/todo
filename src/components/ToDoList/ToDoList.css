@@ -1,0 +1,158 @@
+:root {
+  --bg-color: #f4f7f6;
+  --card-bg: #ffffff;
+  --text-main: #2d3748;
+  --text-muted: #a0aec0;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --border-color: #e2e8f0;
+  --danger: #ef4444;
+  --radius: 12px;
+  --transition: all 0.2s ease-in-out;
+}
+
+/* * {
+  outline: 1px solid red;
+} */
+
+body {
+  background-color: #f4f7f6;
+  margin: 0;
+  padding: 40px 20px;
+
+  /* Замість флексу використовуємо гrid для центрування. 
+     Він жорстко тримає колонки */
+  display: grid;
+  place-items: start center; /* Центрує по горизонталі, притискає до верху по вертикалі */
+}
+
+/* Список задач */
+.todo-list {
+  display: flex;
+  flex-wrap: wrap; /* Дозволяє перенос на новий рядок, коли закінчиться місце */
+  gap: 16px; /* Фіксована відстань між картками */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Елемент списку (Картка таски) */
+.todo-item {
+  /* Картка намагатиметься бути шириною 250px. 
+     Якщо екран широкий (наприклад, 800px) — вони встануть по 3 в ряд.
+     всі порожні місця в рядку вони поділять порівну завдяки flex-grow: 1 */
+  flex: 1 1 250px;
+
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.todo-item:hover {
+  border-color: var(--text-muted);
+  transform: translateY(-1px);
+}
+
+/* Текст задачі */
+.todo-text {
+  flex: 1;
+  font-size: 16px;
+  line-height: 1.5; /* Задає чітку висоту рядка для синхронізації з чекбоксом */
+  margin: 0 12px; /* Відступи зліва від чекбокса та справа від кнопки видалення */
+  word-break: break-word; /* Щоб довгі слова не ламали сітку */
+}
+
+/* Модифікатор для виконаної задачі */
+.todo-item--completed {
+  background-color: #fafafa;
+  border-color: var(--border-color);
+}
+
+.todo-item--completed .todo-text {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* Кастомний Чекбокс */
+.todo-checkbox-wrapper {
+  display: block;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0; /* КРИТИЧНО: забороняє флексу деформувати чекбокс */
+  margin-top: 1px; /* Ідеальне вирівнювання по першому рядку тексту */
+  cursor: pointer;
+}
+
+.todo-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.todo-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: transparent;
+  border: 2px solid var(--text-muted);
+  border-radius: 6px;
+  box-sizing: border-box; /* Щоб бордери не розпирали розмір */
+  transition: var(--transition);
+}
+
+.todo-checkbox-wrapper:hover .todo-checkmark {
+  border-color: var(--primary);
+}
+
+.todo-checkbox:checked ~ .todo-checkmark {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.todo-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  /* Центруємо галочку всередині квадрата 22х22 */
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.todo-checkbox:checked ~ .todo-checkmark:after {
+  display: block;
+}
+
+/* Кнопка видалення */
+.todo-delete-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: var(--transition);
+  opacity: 0; /* Прихована за замовчуванням */
+}
+
+/* Поява кнопки видалення при ховері на всю картку */
+.todo-item:hover .todo-delete-btn {
+  opacity: 1;
+}
+
+.todo-delete-btn:hover {
+  color: var(--danger);
+}
